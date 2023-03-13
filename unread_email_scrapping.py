@@ -25,8 +25,8 @@ def fetch_email(max_iterations):
     try:
         # Connect to the email server
         # imap_server = imaplib.IMAP4_SSL('imap.transmail.com')  # For transmail emails
-        imap_server = imaplib.IMAP4_SSL("imap.gmail.com")
-        imap_server.login("phppranav304@gmail.com", "nsjwobizdkxvtnum")
+        imap_server = imaplib.IMAP4_SSL(os.getenv('IMAP_SERVER_HOSTNAME'))
+        imap_server.login(os.getenv('EMAIL_USERNAME'), os.getenv('EMAIL_PASSWORD'))
 
         # Select the mailbox to search in
         imap_server.select("Inbox")
