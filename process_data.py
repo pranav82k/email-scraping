@@ -37,7 +37,8 @@ def process_data(email_data):
             msg['To'] = email_data['from_part']
             msg['From'] = os.getenv('EMAIL_USERNAME')
             msg['Subject'] = Header("Re: " + email_data['email_subject'], 'utf-8')
-            text = os.getenv('AUTOGENERATE_EMAIL_REPLY_CONTENT')
+            # text = os.getenv('AUTOGENERATE_EMAIL_REPLY_CONTENT')
+            text = summary
             msg.attach(MIMEText(text))
 
             # Attach a file to the reply
