@@ -50,7 +50,7 @@ def process_data(email_data):
             with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
                 smtp.starttls()
                 smtp.login(os.getenv('EMAIL_USERNAME'), os.getenv('EMAIL_PASSWORD'))
-                smtp.sendmail('your_email@gmail.com', msg['To'], msg.as_string())
+                smtp.sendmail(os.getenv('EMAIL_USERNAME'), msg['To'], msg.as_string())
 
             # Send an auto generate email to the sender
             # send_email(
